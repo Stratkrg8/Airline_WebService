@@ -1,139 +1,137 @@
-# YpoxreotikiErgasia23_e20060_Karagrigoriou_Efstratios
-DigitalAirlines Web Service
+#DigitalAirlines Web Service
 
-Η διαδικτυακή υπηρεσία DigitalAirlines είναι ένα RESTful API που επιτρέπει στους χρήστες να διαχειρίζονται τις κρατήσεις πτήσεων. Συνδέεται με μια βάση δεδομένων MongoDB, η οποία αποθηκεύει πληροφορίες σχετικά με τους χρήστες, τις διαθέσιμες πτήσεις και τις κρατήσεις που έγιναν.
+The DigitalAirlines web service is a RESTful API that allows users to manage flight bookings. It connects to a MongoDB database, which stores information about users, available flights and bookings made.
 
 ## Functions
 
-To Web service Παρέχει τις ακόλουθες λειτουργίες:
+The Web service provides the following functions:
 
-Αναζήτηση πτήσεων: Ένας χρήστης μπορεί να αναζητήσει τις πτήσεις που
-υπάρχουν στο σύστημα. Η αναζήτηση  μπορεί να γίνει βάσει των παρακάτω
-στοιχείων:
-   ○ Αεροδρόμιο προέλευσης και αεροδρόμιο τελικού προορισμού, ή
-   ○ Αεροδρόμιο προέλευσης, αεροδρόμιο τελικού προορισμού και ημερομηνία
-   διεξαγωγής, ή
-   ○ Ανά ημερομηνία,
+Search for flights: a user can search for flights that are not available in the system.
+A user can search for flights that are available in the system. A user can search for flights in the system.
+A user can search for flights by using the following data:
+   ○ Airport of origin and airport of final destination, or ○ Airport of origin and airport of final destination.
+   ○ Origin airport, destination airport and date
+   the airport of origin, airport of destination and date of departure, or
+   ○ By date,
   
 
- ○ Εμφάνιση όλων των διαθέσιμων πτήσεων
-    εμφανίζεται μια λίστα με τις διαθέσιμες πτήσεις, τους μοναδικούς κωδικούς τους
-    (_id), την ημερομηνία διεξαγωγής τους, αεροδρόμιο προέλευσης και αεροδρόμιο τελικού
-    προορισμού.
+ ○ Show all available flights
+    displays a list of available flights, their unique codes
+    (_id), their date, origin airport and destination airport
+    destination airport.
 
 
 
 
 
-● Εμφάνιση στοιχείων πτήσης (βάσει μοναδικού κωδικού): Για τη πτήση 
-εμφανίζεται η ημερομηνία διεξαγωγής της, το αεροδρόμιο προέλευσης και το αεροδρόμιο
-τελικού προορισμού, τα διαθέσιμα εισιτήρια (economy και business), καθώς και το
-κόστος των εισιτηρίων για τη κάθε μία από τις δύο κατηγορίες (economy και business).
+● Show flight details (based on unique code). 
+the date of the flight, the airport of origin and the airport of destination
+The date of the flight, its departure airport and final destination, the available tickets (economy and business), as well as the flight's origin and destination.
+The available tickets (economy and business), as well as the cost of the tickets for each of the two categories (economy and business).
 
 
 
 
-● Κράτηση εισιτηρίου (χρησιμοποιώντας το μοναδικό κωδικό της πτήσης): Ο
-χρήστης παρέχει τα στοιχεία που περιγράφονται παρακάτω και κάνει κράτηση
-ενός εισιτηρίου για τη πτήση αυτή:
-   ○ Όνομα
-   ○ Επώνυμο
-   ○ Αριθμό διαβατηρίου
-   ○ Ημερομηνία Γέννησης
-   ○ Email
-   ○ Αν το εισιτήριο αφορά business ή economy class
-
-
-● Εμφάνιση κρατήσεων:  εμφανίζονται οι κρατήσεις που έχει κάνει ο συγκεκριμένος
-χρήστης.
+● Ticket reservation (using the unique flight code).
+The user enters the data described below and makes a reservation (using the flight's ticket number (using the flight's booking code).
+a ticket for that flight:
+   ○ Name
+   ○ Name ○ Surname
+   ○ Passport number
+   ○ Date of birth ○ Date of birth
+   
+     ● Show reservations: the reservations that the person has made are displayed
+The bookings made by this user are shown.
 
 
 
-● Εμφάνιση στοιχείων κράτησης (βάσει μοναδικού κωδικού κράτησης): 
-εμφανίζονται τα στοιχεία που έχει δώσει ο χρήστης για τη κράτηση του εισιτηρίου,
-δηλαδή:
-     ○ Αεροδρόμιο προέλευσης
-     ○ Αεροδρόμιο τελικού προορισμού
-     ○ Ημερομηνία διεξαγωγής της πτήσης
-     ○ Όνομα και επώνυμο ατόμου για το οποίο έχει γίνει η κράτηση
-     ○ Αριθμό διαβατηρίου ατόμου για το οποίο έχει γίνει η κράτηση
-     ○ Ημερομηνία γέννησης ατόμου για το οποίο έχει γίνει η κράτηση
-     ○ Email ατόμου για το οποίο έχει γίνει η κράτηση○ Αν το εισιτήριο αφορά business ή economy class
-● Ακύρωση κράτησης (βάσει μοναδικού κωδικού κράτησης): ακυρώνεται η
-κράτηση και πλέον ο αριθμός των διαθέσιμων εισιτηρίων για τη συγκεκριμένη πτήση θα
-ανανεώνεται.
+● Show reservation details (based on a unique reservation code): 
+the details that the user has provided for the ticket reservation are displayed,
+The user can see the number of tickets booked for the booking, i.e.:
+     ○ Airport of origin ○ Airport of departure
+     ○ Airport of final destination
+     ○ Date of the flight
+     ○ Name and surname of the person for whom the reservation has been made
+     ○ Passport number of the person for whom the reservation has been made ○ Name and surname of the person whose name and flight name is booked
+     ○ Date of birth of the person booked
+     ○ Email of the person booked ○ If the ticket is for business or economy class
+● Booking cancellation (based on unique booking code): the booking is cancelled
+The reservation is cancelled and the number of tickets available for that flight will now be
+The cancellation of the ticket is no longer valid for the flight in question and the ticket for that particular flight will be renewed.
 
 
 
 
-● Διαγραφή του λογαριασμού του από την υπηρεσία: Μετά τη διαγραφή του
-λογαριασμού του, ο χρήστης δεν μπορεί πλέον να έχει πρόσβαση στην υπηρεσία και
-τα στοιχεία του. Οι κρατήσεις που έχουν γίνει από το συγκεκριμένο χρήστη δε θα
-επηρεάζονται.
+● Deletion of the account from the service: after deletion of the account, the new ticket will only be valid for the same number of seats.
+Deletion of the user's account: the user can no longer access the service; and
+After removing the user's account from the service, the user will no longer be able to access the service or his/her details. The user will not be able to access his/her account and will not be able to use his/her services or access his/her account.
+The user's access to his/her account will not be affected.
 
 
 
---Ένας διαχειριστής μπορεί να εκτελέσει τις παρακάτω λειτουργίες
+--An administrator can perform the following operations.
 
-● Δημιουργία πτήσης: Ο διαχειριστής μπορεί να δημιουργήσει μία νέα πτήση
-παρέχοντας τα παρακάτω στοιχεία:
-    ○ Αεροδρόμιο προέλευσης
-    ○ Αεροδρόμιο τελικού προορισμού
-    ○ Ημερομηνία διεξαγωγής πτήσης
-    ○ Διαθέσιμα εισιτήρια και κόστος
-     ■ Για κατηγορία business
-     ■ Για κατηγορία economy
-
-
-
-● Ανανέωση τιμών εισιτηρίων πτήσης: Ο διαχειριστής μπορεί να αλλάξει το κόστος
-των εισιτηρίων για τις δύο κατηγορίες (economy και business).
+● Create a flight: The administrator can create a new flight
+by providing the following information:
+    ○ Origin airport.
+    ○ Airport of final destination.
+    ○ Flight origin originator originator, flight departure airport, flight arrival airport, flight destination airport ○ Flight arrival airport, flight departure airport, flight departure airport.
+    ○ Available tickets and costs
+     ■ For business class
+     ■ For economy class
 
 
 
-● Διαγραφή πτήσης (βάσει μοναδικού κωδικού πτήσης): Ο διαχειριστής μπορεί να
-διαγράψει μία πτήση μόνο αν δεν υπάρχουν κρατήσεις για τη πτήση αυτή.
+● Flight ticket price renewal: The administrator can change the cost
+The administrator can change the price of the tickets for the two categories (economy and business).
 
 
 
-● Αναζήτηση πτήσεων: Ένας διαχειριστής μπορεί να αναζητήσει τις πτήσεις που
-υπάρχουν στο σύστημα. Η αναζήτηση μπορεί να γίνει βάσει των παρακάτω
-στοιχείων:
-     ○ Αεροδρόμιο προέλευσης και αεροδρόμιο τελικού προορισμού, ή
-     ○ Αεροδρόμιο προέλευσης, αεροδρόμιο τελικού προορισμού και ημερομηνία
-        διεξαγωγής, ή
-     ○ Ανά ημερομηνία, ή
-     ○ Εμφάνιση όλων των διαθέσιμων πτήσεων
-         εμφανίζεται μια λίστα με τις διαθέσιμες πτήσεις, τους μοναδικούς κωδικούς τους
-         (_id), την ημερομηνία διεξαγωγής τους, προέλευση και τελικό προορισμό.
+● Flight deletion (based on unique flight code).
+The manager can delete a flight only if there are no reservations for this flight.
+
+
+
+● Search for flights: an administrator can search for flights that are not booked for a specific flight (e.g. if there are no bookings for that flight).
+An administrator can search for flights that exist in the system. An administrator can search for a flight in an administrator's system.
+A search can be made by a user who can search for a flight based on the following elements:
+     ○ Origin airport and destination airport, or
+     ○ Origin airport, destination airport and date.
+        the airport of origin, airport of destination and date of departure, or
+     ○ By date, or
+     ○ Show all available flights
+         display a list of available flights, their unique codes
+         (_id), their date, origin and final destination.
 
 
 
 
-● Εμφάνιση στοιχείων πτήσεων (βάσει μοναδικού κωδικού πτήσης): εμφανίζονται
-τα παρακάτω στοιχεία για τη συγκεκριμένη πτήση:
-      ○ Αεροδρόμιο προέλευσης
-      ○ Αεροδρόμιο τελικού προορισμού
-      ○ Συνολικός αριθμός εισιτηρίων
-      ○ Συνολικός αριθμός εισιτηρίων ανά κατηγορία (economy και business)
-      ○ Κόστος εισιτηρίων ανά κατηγορία
-      ○ Διαθέσιμα εισιτήρια
-      ○ Διαθέσιμα εισιτήρια ανά κατηγορία (economy και business)
-      ○ Για κάθε κράτηση που έχει γίνει στη πτήση αυτή, το όνομα και το επώνυμο το
-         ατόμου για το οποίο έχει γίνει η κράτηση καθώς και η κατηγορία της θέσης που
-         έχει κρατηθεί.
+● Show flight details (based on unique flight code): a list of all flights is displayed
+the following data for the specific flight are displayed:
+      ○ Airport of origin (by flight type) ○ Airport of departure (by flight type).
+      ○ Airport of final destination
+      ○ Total number of tickets
+      ○ Total number of tickets per category (economy and business)
+      ○ Cost of tickets per category (economy and business class) ○ Cost of tickets per category
+      ○ Tickets available
+      ○ Number of tickets available per category (economy and business)
+      ○ For each reservation made on this flight, the name and surname of the person booked on this flight
+         the name and surname of the person for whom the reservation has been made as well as the class of the
+         the name and name of the person and the category of the ticket booked.
 
 
 
 ## How to Use
 
- Για την χρησιμοποιηση του DigitalAirlines web service, Ακολουθηστε αυτα τα βηματα:
+To use the DigitalAirlines web service, follow these steps:
 
-1. Clone το repository και πηγαιντε στο project directory.
+1. Clone the repository and go to the project directory.
 
-2. Σιγουρευτείτε ότι το docker και το docker compass είναι εγκατεστημμένα στο σύστημα σας
+2. 1. go to the repository and go to the repository, go to the repository, go to the directory, and go to the repository.
 
-3. Εκτελέστε αυτή την εντολή ώστε να δημιουργηθεί το container: docker-compose up --build
-   Αυτό θα αρχίσει το web service και το container της mongoDB
+3. Run this command to build the container: docker-compose up --build
+   This will start the mongoDB web service and container
 
-4. Μόλις τα container είναι σε λειτουργία και λειτουργούν, μπορείτε να αλληλεπιδράσετε με την υπηρεσία web μέσω HTTP requests.
+4. Once the containers are up and running, you can interact with the web service via HTTP requests.
+
+
