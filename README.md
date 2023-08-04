@@ -40,7 +40,7 @@ a ticket for that flight:
    ○ Passport number
    ○ Date of birth ○ Date of birth
    
-     ● Show reservations: the reservations that the person has made are displayed
+   ● Show reservations: the reservations that the person has made are displayed
 The bookings made by this user are shown.
 
 
